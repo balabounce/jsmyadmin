@@ -1,0 +1,22 @@
+<h1>Список таблиц</h1>
+
+<a href="/">Список баз данных</a>
+    <br><br>
+    <a href="/database-query/{{ database }}/{{ table }}">Выполнить запрос</a>
+    <br><br>
+    <a href="/database-import/">Импорт</a>
+    <form action="/database-export/{{database}}" method="POST">
+        <button type="submit">Экспорт</button>
+    </form>
+    <br><br>
+<table>
+    {{#tableList}}
+    <tr>
+        <td><a href="/database-table/{{ database }}/{{ name }}">{{ name }}</a></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><a href="/select-builder/{{ database }}/{{ name }}">Найти</a></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><a href="/table-delete/{{database}}/{{name}}">Удалить</a></td>
+    </tr>
+    {{/tableList}}
+</table>

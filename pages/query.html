@@ -1,0 +1,13 @@
+<a href="/">Список баз данных</a>
+<a href="/database/{{database}}">Список таблиц в базе данных {{database}}</a>
+
+<br><br>    
+<form method="POST" action="/database-query-do/{{database}}/{{table}}" class="query-form">
+    <textarea name="SQL" id="" cols="50" rows="20">{{sql}}</textarea>
+    <button type="submit">Выполнить</button>
+    
+</form>
+  
+<br /><br />
+
+<div id="res"></div>

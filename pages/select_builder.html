@@ -1,0 +1,45 @@
+Добавить запись в таблицу
+
+<br /><br />
+<a href="/">Список баз данных</a>
+<a href="/database/{{ database }}">Список таблиц</a>
+<a href="/database-table/{{ database }}/{{ table }}">Таблица {{ table }}</a>
+<br><br>
+<form method="POST" 
+    action=""
+    class="search-table"
+    data-base="{{ database }}"
+    data-table="{{ table }}"
+    >
+    <table>
+        {{#row_list}}
+        <tr data-field="{{ Field }}">
+            <td>{{Field}}</td>
+            <td>{{Type}}</td>
+            <td>
+                <select name="operation[]">
+                    <option value="=" selected>=</option>
+                    <option value="!=">!=</option>
+                    <option value="g">&gt;</option>
+                    <option value="l">&lt;</option>
+                    <option value="ge">&gt;=</option>
+                    <option value="le">&lt;=</option>
+                    <option value="isNull">IS NULL</option>
+                    <option value="isNotNull">IS NOT NULL</option>
+                    <option value="Like">LIKE</option>
+                    <option value="specLike">LIKE %...%</option>
+                    <option value="notLike">NOT LIKE</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="field[]" value="">
+            </td>
+        </tr>
+        {{/row_list}}
+    </table>
+    <button type="submit">Показать</button>
+</form>
+
+<br /><br />
+
+<div id="res"></div>

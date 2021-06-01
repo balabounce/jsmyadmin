@@ -1,0 +1,23 @@
+Редактировать запись
+
+<br><br>
+
+<a href="/">Список баз данных</a>
+<a href="/database/{{database}}">Список таблиц</a>
+<a href="/database-table/{{database}}/{{table}}">Таблица {{ table }}</a>
+
+<br /><br />
+
+<form method="POST" action="/database-table-edit-do/{{database}}/{{table}}/?{{{query}}}">
+    <table style="width: 100%;">
+        {{#data}}
+        <tr>
+            <td>{{name}}</td>
+            <td>
+                <input type="text" name="{{name}}" value="{{Value}}" style="width: 100%;">
+            </td>
+        </tr>
+        {{/data}}
+    </table>
+    <button type="submit">Редактировать</button>
+</form>

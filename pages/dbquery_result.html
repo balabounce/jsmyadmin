@@ -1,0 +1,24 @@
+{{#errorMessage}}
+<div>
+{{errorMessage}}
+</div>
+{{/errorMessage}}
+
+{{#cnt}}
+<p>Выбрано записей: <b>{{ cnt }}</b></p>
+{{/cnt}}
+
+{{^cnt}}
+<p>Затронуто записей: <b>{{ affectedRows }}</b></p>
+{{/cnt}}
+<table>
+<tr>
+<th></th>
+{{#field_list}}
+<th>{{name}}</th>
+{{/field_list}}
+</tr>
+{{#row_list}}
+<tr>{{{data}}}</tr>
+{{/row_list}}
+</table>

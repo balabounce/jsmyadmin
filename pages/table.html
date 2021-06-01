@@ -1,0 +1,18 @@
+<h1>Список записей в таблице {{ table }}</h1>
+<p>
+    <a href="/">Список баз данных</a>
+    <br><br>
+    <a href="/database-table-insert/{{database}}/{{table}}">Добавить запись</a>
+    <a href="/database-query/{{database}}/{{table}}">Выполнить запрос</a>
+</p>
+<table>
+    <tr>
+    <th></th>
+    {{#field_list}}
+    <th>{{name}}</th>
+    {{/field_list}}
+    </tr>
+    {{#row_list}}
+    <tr>{{{data}}}</tr>
+    {{/row_list}}
+</table>

@@ -1,0 +1,37 @@
+<h2>Список баз данных</h2>
+<table>
+    {{#database_list}}
+    <tr>
+        <td>
+            <a href="/database/{{Database}}">{{Database}}</a>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            <a href="/database-delete/{{Database}}">Удалить</a>
+        </td>
+    </tr>
+    {{/database_list}}
+</table>
+{{#canCreateDatabase}}
+<h2>Новая база данных</h2>
+<form action="/database-create/" method="POST">
+    <input type="text" name='name' placeholder="Имя базы данных">
+    <button type="submit">Создать</button>
+</form>
+<a href="/database-import/">Импорт</a>
+{{/canCreateDatabase}}
+<h2>Новый пользователь</h2>
+<form action="/user-create/" method="POST">
+    <input type="text" name='login' placeholder="Логин">
+    <input type="text" name='password' placeholder="Пароль">
+    <button type="submit">Создать</button>
+</form>
+<br><br>
+{{#login}}
+<a href="/logout">Выйти</a>
+{{login}}
+{{/login}}
+{{^login}}
+<a href="/login">Войти</a>
+{{/login}}
+

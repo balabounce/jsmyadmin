@@ -1,0 +1,23 @@
+Добавить запись в таблицу
+
+<br /><br />
+<a href="/">Список баз данных</a>
+<a href="/database/{{database}}">Список таблиц</a>
+<a href="/database-table/{{database}}/{{table}}">Таблица {{ table }}</a>
+<br><br>
+<form method="POST" action="/database-table-insert-do/{{database}}/{{table}}">
+    <table>
+        {{#row_list}}
+        <tr>
+            <td>{{Field}}</td>
+            <td>{{Type}}</td>
+            <td>{{Null}}</td>
+            <td>{{Key}}</td>
+            <td>
+                <input type="text" name="{{Field}}" value="{{Default}}">
+            </td>
+        </tr>
+        {{/row_list}}
+    </table>
+    <button type="submit">Добавить</button>
+</form>

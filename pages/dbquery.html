@@ -1,0 +1,32 @@
+<a href="/">Список баз данных</a>
+<a href="/database/{{database}}">Список таблиц в базе данных {{database}}</a>
+<br><br>    
+<form method="POST" action="/database-query-do/{{database}}.{{table}}">
+    <textarea name="SQL" id="" cols="50" rows="20">{{sql}}</textarea>
+    <button type="submit">Выполнить</button>
+    
+</form>
+    {{#errorMessage}}
+    <div>
+    {{errorMessage}}
+    </div>
+    {{/errorMessage}}
+
+{{#cnt}}
+<p>Выбрано записей: <b>{{ cnt }}</b></p>
+{{/cnt}}
+
+{{^cnt}}
+<p>Затронуто записей: <b>{{ affectedRows }}</b></p>
+{{/cnt}}
+<table>
+    <tr>
+    <th></th>
+    {{#field_list}}
+    <th>{{name}}</th>
+    {{/field_list}}
+    </tr>
+    {{#row_list}}
+    <tr>{{{data}}}</tr>
+    {{/row_list}}
+</table>
